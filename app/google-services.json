@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "869868277728",
-    "firebase_url": "https://comidastati.firebaseio.com",
-    "project_id": "comidastati",
-    "storage_bucket": "comidastati.appspot.com"
+    "project_number": "246601745660",
+    "firebase_url": "https://comidastati-c943c.firebaseio.com",
+    "project_id": "comidastati-c943c",
+    "storage_bucket": "comidastati-c943c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:869868277728:android:3eae782f2c35ad5e1da585",
+        "mobilesdk_app_id": "1:246601745660:android:372ae7a8a5c14516684379",
         "android_client_info": {
-          "package_name": "com.example.comidastati"
+          "package_name": "com.ukuapps.comidastati"
         }
       },
       "oauth_client": [
         {
-          "client_id": "869868277728-u3c9445gqigf6m9er5fooesmcr0noaec.apps.googleusercontent.com",
+          "client_id": "246601745660-29kkihlol4eg6gem6g45ahi3ap48v1s6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.comidastati",
+            "package_name": "com.ukuapps.comidastati",
             "certificate_hash": "0c32592cfc8c0785b8072b64c5b82d40caf2fa9d"
           }
         },
         {
-          "client_id": "869868277728-gn230gnl0cubacprj1fpqbdiur1ora6f.apps.googleusercontent.com",
+          "client_id": "246601745660-7jcje5vkm3v5lkv5f3cjl19q08vq1veg.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB5p9uJjvejVif7g4g1_bAzyMChatvbZIM"
+          "current_key": "AIzaSyDGLOaucOm-MY2L3qiwdjksAdikA8djupc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "869868277728-gn230gnl0cubacprj1fpqbdiur1ora6f.apps.googleusercontent.com",
+              "client_id": "246601745660-7jcje5vkm3v5lkv5f3cjl19q08vq1veg.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
