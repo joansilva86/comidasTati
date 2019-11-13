@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ComidasTati</string>
+    <string name="phone">+51 930 333 437</string>
+    <string name="btn_new_account">Registrarte</string>
+    <string name="btn_forget_pass">olvido su contraseña</string>
+    <string name="btn_signin">ingresar</string>
+    <string name="user">usuario</string>
+    <string name="name">nombre</string>
+    <string name="password">contrasena</string>
+    <string name="btn_cancel">cancelar</string>
+
+    <string name="mailEmpty">debe completar el Mail</string>
+    <string name="passwordEmpty">debe completar la clave</string>
+    <string name="emailNoMatch">El mail no ttene un formato valido</string>
+</resources>

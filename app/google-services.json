@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "869868277728",
+    "firebase_url": "https://comidastati.firebaseio.com",
+    "project_id": "comidastati",
+    "storage_bucket": "comidastati.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869868277728:android:3eae782f2c35ad5e1da585",
+        "android_client_info": {
+          "package_name": "com.example.comidastati"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869868277728-u3c9445gqigf6m9er5fooesmcr0noaec.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.comidastati",
+            "certificate_hash": "0c32592cfc8c0785b8072b64c5b82d40caf2fa9d"
+          }
+        },
+        {
+          "client_id": "869868277728-gn230gnl0cubacprj1fpqbdiur1ora6f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5p9uJjvejVif7g4g1_bAzyMChatvbZIM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869868277728-gn230gnl0cubacprj1fpqbdiur1ora6f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
