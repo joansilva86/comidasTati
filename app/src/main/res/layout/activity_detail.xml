@@ -20,13 +20,26 @@
                 android:id="@+id/btnGetOrder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Pedir" />
 
             <Button
+
                 android:id="@+id/btnNewFood"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="New" />
+
+            <Button
+                android:id="@+id/btnUpdateFood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guardar" />
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cancelar" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

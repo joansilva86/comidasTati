@@ -17,7 +17,7 @@
         {
           "client_id": "246601745660-29kkihlol4eg6gem6g45ahi3ap48v1s6.apps.googleusercontent.com",
           "client_type": 1,
-          "android_info": {
+          "android_info": {1
             "package_name": "com.ukuapps.comidastati",
             "certificate_hash": "0c32592cfc8c0785b8072b64c5b82d40caf2fa9d"
           }

@@ -9,7 +9,13 @@
     <string name="password">contrasena</string>
     <string name="btn_cancel">cancelar</string>
 
+    <string name="nameEmpty">debe completar el campo Nombre</string>
     <string name="mailEmpty">debe completar el Mail</string>
+    <string name="foodEmpty">debe completar el campo de comida favorita</string>
     <string name="passwordEmpty">debe completar la clave</string>
+    <string name="passwordNoMatch">las claves deben ser iguales</string>
     <string name="emailNoMatch">El mail no ttene un formato valido</string>
+    <string name="new_account_succed">Usuario Creado</string>
+    <string name="createFoodSucced">Se dio de alta la comida</string>
+
 </resources>

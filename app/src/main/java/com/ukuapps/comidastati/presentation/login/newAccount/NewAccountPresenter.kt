@@ -33,12 +33,15 @@ class NewAccountPresenter @Inject constructor(private val interactor: LoginInter
         if(validateNewAccount(model)){
             launch{
                 try{
+                    view?.showProgressBar()
                     interactor.createNewAccount(model)
                     view?.showNewAccountSucced()
                     view?.goToSignIn()
+                    view?.hideProgressBar()
                 }
                 catch(ex : NewAccountException){
                     view?.showError(ex.toString())
+                    view?.hideProgressBar()
                 }
             }
         }
@@ -63,6 +66,6 @@ class NewAccountPresenter @Inject constructor(private val interactor: LoginInter
         if(!model.isMailCorrect){
             view?.emailNoMacth()
         }
-        return model.isValid
+        return !model.isValid
     }
 }

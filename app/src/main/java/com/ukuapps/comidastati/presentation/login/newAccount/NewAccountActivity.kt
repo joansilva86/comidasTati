@@ -1,6 +1,7 @@
 package com.ukuapps.comidastati.presentation.login.newAccount
 
 import android.os.Bundle
+import android.view.View
 import com.ukuapps.comidastati.ComidasTatiApp
 import com.ukuapps.comidastati.R
 import com.ukuapps.comidastati.presentation.base.BaseActivity
@@ -8,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_new_account.*
 import javax.inject.Inject
 
 class NewAccountActivity : BaseActivity() , NewAccountView{
+
 
     @Inject
     lateinit var presenter: NewAccountPresenter
@@ -44,39 +46,47 @@ class NewAccountActivity : BaseActivity() , NewAccountView{
     }
 
     override fun nameEmpty() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        txtLayoutLastName.error = getString(R.string.nameEmpty)
     }
 
     override fun foodEmpty() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        txtLayoutFood.error = getString(R.string.foodEmpty)
     }
 
     override fun emailEmpty() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        txtLayoutMail.error   = getString(R.string.mailEmpty)
     }
 
     override fun emailNoMacth() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        txtLayoutMail.error = getString(R.string.emailNoMatch)
     }
 
     override fun passNoMach() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        txtLayoutMail.error = getString(R.string.passwordNoMatch)
     }
 
     override fun passEmpty() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        txtLayoutPass.error = getString(R.string.passwordEmpty)
     }
 
     override fun showNewAccountSucced() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        toast(getString(R.string.new_account_succed))
+        finish()
     }
 
     override fun goToSignIn() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        finish()
     }
 
     override fun showError(msj: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        toast(msj)
+    }
+    override fun showProgressBar() {
+        progressBar.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        progressBar.visibility  = View.GONE
     }
 
 }

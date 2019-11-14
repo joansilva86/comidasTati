@@ -7,4 +7,6 @@ interface RecoverPassView {
     fun empyEmail()
     fun noMatchEmail()
     fun recoverPassword()
+    fun showProgressBar()
+    fun hideProgressBar()
 }

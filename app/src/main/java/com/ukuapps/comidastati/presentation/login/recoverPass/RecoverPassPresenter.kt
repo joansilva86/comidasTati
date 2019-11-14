@@ -41,12 +41,15 @@ class RecoverPassPresenter
         }
         launch {
             try {
+                view?.showProgressBar()
                 interactor.recoverPassword(mail)
                 view?.showRecoverSucced()
                 view?.goToSignIn()
+                view?.hideProgressBar()
 
             } catch (ex: RecoverPasswordException) {
                 view?.showError(ex.toString())
+                view?.hideProgressBar()
             }
         }
     }

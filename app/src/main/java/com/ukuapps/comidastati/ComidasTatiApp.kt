@@ -3,6 +3,7 @@ package com.ukuapps.comidastati
 import android.app.Application
 import com.ukuapps.comidastati.presentation.di.DaggerPresentationComponent
 import com.ukuapps.comidastati.presentation.di.PresentationComponent
+import com.ukuapps.comidastati.presentation.di.PresentationModule
 
 class ComidasTatiApp: Application() {
 
@@ -14,7 +15,7 @@ class ComidasTatiApp: Application() {
         super.onCreate()
         appComponent = DaggerPresentationComponent
             .builder()
-
+            .presentationModule(PresentationModule())
             .build()
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import com.ukuapps.comidastati.ComidasTatiApp
 import com.ukuapps.comidastati.R
 import com.ukuapps.comidastati.presentation.base.BaseActivity
@@ -34,6 +35,9 @@ class DetailActivity : BaseActivity() , DetailView{
         super.onCreate(savedInstanceState)
         (application as ComidasTatiApp).getAppContent().inject(this)
         btnGetOrder.setOnClickListener { goToMakePedido() }
+        btnUpdateFood.setOnClickListener { updateFood() }
+        btnCancel.setOnClickListener { goBack() }
+        btnNewFood.setOnClickListener { newFood() }
     }
 
     override fun showError(msj: String) {
@@ -91,7 +95,34 @@ class DetailActivity : BaseActivity() , DetailView{
     override fun timeEmpty() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+    override fun updateFood() {
+        var model = DetailModel("fasd","we",12,123,11)
+        presenter.updateFood(model)
+    }
+
     override fun newFoodSucced() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        toast(getString(R.string.createFoodSucced))
+    }
+
+    override fun modeCreate() {
+        btnGetOrder.visibility = View.GONE
+        btnNewFood.visibility  =View.VISIBLE
+        btnUpdateFood.visibility = View.GONE
+        btnCancel.visibility = View.VISIBLE
+    }
+
+    override fun modeUpdate() {
+        btnGetOrder.visibility = View.GONE
+        btnNewFood.visibility  =View.GONE
+        btnUpdateFood.visibility = View.VISIBLE
+        btnCancel.visibility = View.VISIBLE
+    }
+
+    override fun modeView() {
+        btnGetOrder.visibility = View.VISIBLE
+        btnNewFood.visibility  =View.GONE
+        btnUpdateFood.visibility = View.GONE
+        btnCancel.visibility = View.VISIBLE
     }
 }

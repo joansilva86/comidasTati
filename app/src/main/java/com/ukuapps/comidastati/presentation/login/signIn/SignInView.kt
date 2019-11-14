@@ -10,5 +10,7 @@ interface SignInView {
     fun goToRecoverPassword()
     fun signIn()
     fun cleanPassword()
+    fun showProgressBar()
+    fun hideProgressBar()
 
 }

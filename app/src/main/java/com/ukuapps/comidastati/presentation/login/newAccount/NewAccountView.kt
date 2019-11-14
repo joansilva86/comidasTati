@@ -11,4 +11,6 @@ interface NewAccountView {
     fun showNewAccountSucced()
     fun goToSignIn()
     fun showError(msj : String)
+    fun showProgressBar()
+    fun hideProgressBar()
 }

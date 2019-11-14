@@ -1,15 +1,16 @@
 package com.ukuapps.comidastati.presentation.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ukuapps.comidastati.ComidasTatiApp
 import com.ukuapps.comidastati.R
 import com.ukuapps.comidastati.presentation.base.BaseActivity
+import com.ukuapps.comidastati.presentation.detail.DetailActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class MainActivity : BaseActivity() , MainView{
-
 
     @Inject
     lateinit var presenter: MainPresenter
@@ -41,6 +42,11 @@ class MainActivity : BaseActivity() , MainView{
 
     override fun showError(msj: String) {
         toast(msj)
+    }
+
+    override fun newFood() {
+        var intent = Intent(this,DetailActivity::class.java)
+        startActivity(intent)
     }
 
 }
