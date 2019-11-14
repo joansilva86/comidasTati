@@ -22,4 +22,7 @@ interface DetailView {
     fun modeUpdate()
     fun modeView()
 
+    fun showProgressBar()
+    fun hideProgressBar()
+
 }

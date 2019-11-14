@@ -17,6 +17,8 @@ class MainInteractorImp : MainInteractorI{
     }
 
     override fun newFood(model: DetailModel) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val userDB = dbReference.child(1)
+        userDB.child("Name").setValue(model.name)
+        userDB.child("Ingredientes").setValue(model.ingredientes)
     }
 }

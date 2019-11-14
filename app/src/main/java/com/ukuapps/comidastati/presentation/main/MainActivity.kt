@@ -2,15 +2,19 @@ package com.ukuapps.comidastati.presentation.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ukuapps.comidastati.ComidasTatiApp
 import com.ukuapps.comidastati.R
 import com.ukuapps.comidastati.presentation.base.BaseActivity
 import com.ukuapps.comidastati.presentation.detail.DetailActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 import javax.inject.Inject
 
 class MainActivity : BaseActivity() , MainView{
+
+
 
     @Inject
     lateinit var presenter: MainPresenter
@@ -32,6 +36,8 @@ class MainActivity : BaseActivity() , MainView{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (application as ComidasTatiApp).getAppContent().inject(this)
+
+        fab.setOnClickListener { goToNewFood() }
         recycler.adapter = CustomAdapter()
         recycler.layoutManager = LinearLayoutManager(this)
     }
@@ -44,9 +50,22 @@ class MainActivity : BaseActivity() , MainView{
         toast(msj)
     }
 
-    override fun newFood() {
+    override fun goToNewFood() {
         var intent = Intent(this,DetailActivity::class.java)
         startActivity(intent)
+    }
+
+    override fun goToViewFood() {
+        var intent = Intent(this,DetailActivity::class.java)
+        startActivity(intent)
+    }
+
+    override fun modeAdmin() {
+        //fab.visibility = View.VISIBLE
+    }
+
+    override fun modeUser() {
+        //fab.visibility = View.GONE
     }
 
 }

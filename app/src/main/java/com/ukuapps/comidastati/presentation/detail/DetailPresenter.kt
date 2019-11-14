@@ -1,5 +1,8 @@
 package com.ukuapps.comidastati.presentation.detail
 
+import android.content.Intent
+import android.net.Uri
+import com.ukuapps.comidastati.R
 import com.ukuapps.comidastati.domain.main.ExceptionNewFood
 import com.ukuapps.comidastati.domain.main.MainInteractorI
 import com.ukuapps.comidastati.presentation.base.BasePresenter
@@ -31,11 +34,14 @@ class DetailPresenter @Inject constructor(private val interactor: MainInteractor
             return
         launch {
             try {
+                view?.showProgressBar()
                 interactor.newFood(model)
                 view?.newFoodSucced()
                 view?.goBack()
+                view?.hideProgressBar()
             } catch (ex: ExceptionNewFood) {
                 view?.showError(ex.toString())
+                view?.hideProgressBar()
             }
         }
 
@@ -68,5 +74,9 @@ class DetailPresenter @Inject constructor(private val interactor: MainInteractor
             view?.timeEmpty()
 
         return !model.isValid
+    }
+
+    fun makePedido(num : String){
+
     }
 }

@@ -3,30 +3,24 @@
     package="com.ukuapps.comidastati">
 
     <application
-        android:name="com.ukuapps.comidastati.ComidasTatiApp"
+        android:name=".ComidasTatiApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.ukuapps.comidastati.presentation.detail.DetailActivity">
 
-
-        </activity>
-        <activity android:name="com.ukuapps.comidastati.presentation.login.newAccount.NewAccountActivity" />
-        <activity android:name="com.ukuapps.comidastati.presentation.login.recoverPass.RecoverPassActivity" />
-        <activity android:name="com.ukuapps.comidastati.presentation.login.signIn.SignInActivity">
-
+        <activity android:name=".presentation.detail.DetailActivity"></activity>
+        <activity android:name=".presentation.login.newAccount.NewAccountActivity" />
+        <activity android:name=".presentation.login.recoverPass.RecoverPassActivity" />
+        <activity android:name=".presentation.login.signIn.SignInActivity"></activity>
+        <activity android:name=".presentation.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
-        </activity>
-        <activity android:name="com.ukuapps.comidastati.presentation.main.MainActivity">
-
         </activity>
     </application>
 

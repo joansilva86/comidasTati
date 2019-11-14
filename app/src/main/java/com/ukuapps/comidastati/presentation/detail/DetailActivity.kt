@@ -12,7 +12,8 @@ import com.ukuapps.comidastati.presentation.main.MainActivity
 import kotlinx.android.synthetic.main.activity_detail.*
 import javax.inject.Inject
 
-class DetailActivity : BaseActivity() , DetailView{
+class DetailActivity : BaseActivity(), DetailView {
+
 
     @Inject
     lateinit var presenter: DetailPresenter
@@ -49,14 +50,17 @@ class DetailActivity : BaseActivity() , DetailView{
     }
 
     override fun goToMakePedido() {
+
         val isAppInstalled = appInstalledOrNot("com.whatsapp")
         val num = getString(R.string.phone)
         if (isAppInstalled) {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone=$num"))
+            val intent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone=$num"))
             startActivity(intent)
         } else {
-
+            toast(getString(R.string.whatsappNotInstall))
         }
+
     }
 
     private fun appInstalledOrNot(uri: String): Boolean {
@@ -70,34 +74,38 @@ class DetailActivity : BaseActivity() , DetailView{
     }
 
     override fun goBack() {
-        val intent = Intent(this,MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
     }
 
     override fun newFood() {
-        var model = DetailModel("fasd","we",12,123,11)
+        var nameFood = txtNameFood.text.toString()
+        var ingredientes = txtIngredientesFood.text.toString()
+        var price = txtPrice.text.toString().toInt()
+        var time = txtTime.text.toString().toInt()
+        var model = DetailModel(nameFood,ingredientes,price,time, 11)
         presenter.newFood(model)
     }
 
     override fun nameEmpty() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        txtLayoutNameFood.error = getString(R.string.nameFoodEmpty)
     }
 
     override fun ingredientesEmpty() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        txtLayoutIngredientesFood.error = getString(R.string.ingredientesFoodEmpty)
     }
 
     override fun priceEmpty() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        txtLayoutPrice.error = getString(R.string.priceEmpty)
     }
 
     override fun timeEmpty() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        txtLayoutTime.error = getString(R.string.timeEmpty)
     }
 
     override fun updateFood() {
-        var model = DetailModel("fasd","we",12,123,11)
+        var model = DetailModel("fasd", "we", 12, 123, 11)
         presenter.updateFood(model)
     }
 
@@ -107,22 +115,33 @@ class DetailActivity : BaseActivity() , DetailView{
 
     override fun modeCreate() {
         btnGetOrder.visibility = View.GONE
-        btnNewFood.visibility  =View.VISIBLE
+        btnNewFood.visibility = View.VISIBLE
         btnUpdateFood.visibility = View.GONE
         btnCancel.visibility = View.VISIBLE
     }
 
     override fun modeUpdate() {
         btnGetOrder.visibility = View.GONE
-        btnNewFood.visibility  =View.GONE
+        btnNewFood.visibility = View.GONE
         btnUpdateFood.visibility = View.VISIBLE
         btnCancel.visibility = View.VISIBLE
     }
 
     override fun modeView() {
         btnGetOrder.visibility = View.VISIBLE
-        btnNewFood.visibility  =View.GONE
+        btnNewFood.visibility = View.GONE
         btnUpdateFood.visibility = View.GONE
         btnCancel.visibility = View.VISIBLE
+    }
+
+    override fun showProgressBar() {
+        progressBar.visibility  = View.VISIBLE
+        btnNewFood.visibility = View.GONE
+        btnUpdateFood.visibility = View.GONE
+    }
+
+    override fun hideProgressBar() {
+        progressBar.visibility  = View.GONE
+
     }
 }

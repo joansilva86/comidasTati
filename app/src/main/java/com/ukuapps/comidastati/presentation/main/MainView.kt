@@ -3,5 +3,10 @@ package com.ukuapps.comidastati.presentation.main
 interface MainView {
     fun showList()
     fun showError(msj : String)
-    fun newFood()
+    fun goToNewFood()
+    fun goToViewFood()
+
+    fun modeAdmin()
+    fun modeUser()
+
 }

@@ -18,4 +18,12 @@
     <string name="new_account_succed">Usuario Creado</string>
     <string name="createFoodSucced">Se dio de alta la comida</string>
 
+
+    <string name="nameFoodEmpty">debe completar el campo nombre de la comida</string>
+    <string name="ingredientesFoodEmpty">debe completar el campo ingredientes de la comida</string>
+    <string name="priceEmpty">debe completar el precio de la comida</string>
+    <string name="timeEmpty">debe completar el tiempo de preparacion de la comida</string>
+
+
+    <string name="whatsappNotInstall">Necesitas instalar el whatsapp para </string>
 </resources>
