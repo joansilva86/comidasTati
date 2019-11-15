@@ -27,7 +27,7 @@
                     android:id="@+id/txtNameFood"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/name"
+                    android:hint="nombre del plato"
                     android:inputType="textPersonName"
 
 
@@ -50,7 +50,7 @@
                     android:id="@+id/txtIngredientesFood"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Comida Favorita"
+                    android:hint="ingredientes"
                     android:inputType="textPersonName"
                     android:maxLines="1"
 
@@ -110,7 +110,9 @@
                 android:id="@+id/progressBar"
                 style="?android:attr/progressBarStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                />
 
             <Button
 

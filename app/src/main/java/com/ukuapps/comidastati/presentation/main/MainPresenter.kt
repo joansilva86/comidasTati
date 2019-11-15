@@ -39,4 +39,8 @@ class MainPresenter @Inject constructor(private val interactor: MainInteractorI)
         }
     }
 
+    fun getListFood(list : ArrayList<RecyclerModel>){
+        interactor.getListFood(list)
+    }
+
 }

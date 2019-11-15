@@ -11,7 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".presentation.detail.DetailActivity"></activity>
+        <activity android:name=".presentation.detail.DetailActivity">
+
+
+
+        </activity>
         <activity android:name=".presentation.login.newAccount.NewAccountActivity" />
         <activity android:name=".presentation.login.recoverPass.RecoverPassActivity" />
         <activity android:name=".presentation.login.signIn.SignInActivity"></activity>

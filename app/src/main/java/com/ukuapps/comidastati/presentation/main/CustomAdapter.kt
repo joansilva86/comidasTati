@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.recycler_item.view.*
 
 class CustomAdapter : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
 
-    private  var list = ArrayList<RecyclerModel>()
+     var list = ArrayList<RecyclerModel>()
 
     set(value) {
         field = value

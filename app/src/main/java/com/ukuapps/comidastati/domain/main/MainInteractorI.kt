@@ -8,4 +8,5 @@ interface MainInteractorI {
     fun updateFood(model: DetailModel)
     fun deleteFood(id:Int)
     fun getFoods(list: ArrayList<RecyclerModel>)
+    fun getListFood(list : ArrayList<RecyclerModel>)
 }

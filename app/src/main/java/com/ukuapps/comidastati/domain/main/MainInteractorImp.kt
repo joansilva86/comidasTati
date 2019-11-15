@@ -1,9 +1,40 @@
 package com.ukuapps.comidastati.domain.main
 
+import com.google.firebase.database.*
 import com.ukuapps.comidastati.presentation.detail.DetailModel
 import com.ukuapps.comidastati.presentation.main.RecyclerModel
 
-class MainInteractorImp : MainInteractorI{
+class MainInteractorImp : MainInteractorI {
+
+    var unobjeto : DetailModel? = null
+
+    var list =  ArrayList<RecyclerModel>()
+    var database = FirebaseDatabase.getInstance()
+    var dbReference = database.getReference()
+
+    init {
+
+        dbReference = database.reference.child("comidas")
+    }
+
+    override fun getListFood(list : ArrayList<RecyclerModel>) {
+        this.list = list
+        dbReference.addValueEventListener(listener)
+    }
+
+    var listener = object : ValueEventListener {
+        override fun onCancelled(p0: DatabaseError) {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun onDataChange(dataSnapshot: DataSnapshot) {
+            unobjeto = dataSnapshot.getValue(DetailModel::class.java)
+            list.add(unobjeto)
+
+        }
+
+    }
+
     override fun updateFood(model: DetailModel) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -17,8 +48,9 @@ class MainInteractorImp : MainInteractorI{
     }
 
     override fun newFood(model: DetailModel) {
-        val userDB = dbReference.child(1)
-        userDB.child("Name").setValue(model.name)
-        userDB.child("Ingredientes").setValue(model.ingredientes)
+
+        val userDB = dbReference.child("comidas")
+        userDB.child("IDDelaComida").setValue(model)
+        //userDB.child("Ingredientes").setValue(model.ingredientes)
     }
 }

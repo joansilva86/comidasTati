@@ -30,11 +30,13 @@ class DetailPresenter @Inject constructor(private val interactor: MainInteractor
     }
 
     fun newFood(model: DetailModel) {
+
         if (validate(model))
             return
+        view?.showProgressBar()
         launch {
             try {
-                view?.showProgressBar()
+
                 interactor.newFood(model)
                 view?.newFoodSucced()
                 view?.goBack()

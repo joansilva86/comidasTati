@@ -26,6 +26,8 @@ class MainActivity : BaseActivity() , MainView{
     override fun onResume() {
         super.onResume()
         presenter.attach(this)
+        var list =  (recycler.adapter as CustomAdapter).list
+        presenter.getListFood(list)
     }
 
     override fun onPause() {

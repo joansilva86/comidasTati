@@ -46,7 +46,7 @@ class DetailActivity : BaseActivity(), DetailView {
     }
 
     override fun showFood(model: DetailView) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun goToMakePedido() {
@@ -74,8 +74,7 @@ class DetailActivity : BaseActivity(), DetailView {
     }
 
     override fun goBack() {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+
         finish()
     }
 
