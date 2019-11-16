@@ -83,7 +83,7 @@ class DetailActivity : BaseActivity(), DetailView {
         var ingredientes = txtIngredientesFood.text.toString()
         var price = txtPrice.text.toString().toInt()
         var time = txtTime.text.toString().toInt()
-        var model = DetailModel(nameFood,ingredientes,price,time, 11)
+        var model = DetailModel(nameFood,ingredientes,price,time, "1")
         presenter.newFood(model)
     }
 
@@ -104,7 +104,7 @@ class DetailActivity : BaseActivity(), DetailView {
     }
 
     override fun updateFood() {
-        var model = DetailModel("fasd", "we", 12, 123, 11)
+        var model = DetailModel("fasd", "we", 12, 123, "11")
         presenter.updateFood(model)
     }
 

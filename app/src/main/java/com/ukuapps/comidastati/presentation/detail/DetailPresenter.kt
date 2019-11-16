@@ -31,8 +31,8 @@ class DetailPresenter @Inject constructor(private val interactor: MainInteractor
 
     fun newFood(model: DetailModel) {
 
-        if (validate(model))
-            return
+        /*if (validate(model))
+            return*/
         view?.showProgressBar()
         launch {
             try {
@@ -75,7 +75,8 @@ class DetailPresenter @Inject constructor(private val interactor: MainInteractor
         if (model.time == 0)
             view?.timeEmpty()
 
-        return !model.isValid
+        //return !model.isValid
+        return true
     }
 
     fun makePedido(num : String){
