@@ -8,12 +8,12 @@ import android.view.View
 import com.ukuapps.comidastati.ComidasTatiApp
 import com.ukuapps.comidastati.R
 import com.ukuapps.comidastati.presentation.base.BaseActivity
+import com.ukuapps.comidastati.presentation.login.signIn.SignInModel
 import com.ukuapps.comidastati.presentation.main.MainActivity
 import kotlinx.android.synthetic.main.activity_detail.*
 import javax.inject.Inject
 
 class DetailActivity : BaseActivity(), DetailView {
-
 
     @Inject
     lateinit var presenter: DetailPresenter
@@ -21,6 +21,7 @@ class DetailActivity : BaseActivity(), DetailView {
     override fun onResume() {
         super.onResume()
         presenter.attach(this)
+        presenter.begin()
     }
 
     override fun onPause() {
@@ -31,6 +32,7 @@ class DetailActivity : BaseActivity(), DetailView {
     override fun getLayOut(): Int {
         return R.layout.activity_detail
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,7 +85,7 @@ class DetailActivity : BaseActivity(), DetailView {
         var ingredientes = txtIngredientesFood.text.toString()
         var price = txtPrice.text.toString().toInt()
         var time = txtTime.text.toString().toInt()
-        var model = DetailModel(nameFood,ingredientes,price,time, "1")
+        var model = DetailModel(nameFood, ingredientes, price, time, "1")
         presenter.newFood(model)
     }
 
@@ -134,13 +136,27 @@ class DetailActivity : BaseActivity(), DetailView {
     }
 
     override fun showProgressBar() {
-        progressBar.visibility  = View.VISIBLE
+        progressBar.visibility = View.VISIBLE
         btnNewFood.visibility = View.GONE
         btnUpdateFood.visibility = View.GONE
     }
 
     override fun hideProgressBar() {
-        progressBar.visibility  = View.GONE
+        progressBar.visibility = View.GONE
 
+    }
+
+    override fun modeAdmin() {
+        btnGetOrder.visibility = View.GONE
+        btnNewFood.visibility = View.VISIBLE
+        btnUpdateFood.visibility = View.VISIBLE
+        btnCancel.visibility = View.VISIBLE
+    }
+
+    override fun modeUser() {
+        btnGetOrder.visibility = View.VISIBLE
+        btnNewFood.visibility = View.GONE
+        btnUpdateFood.visibility = View.GONE
+        btnCancel.visibility = View.VISIBLE
     }
 }

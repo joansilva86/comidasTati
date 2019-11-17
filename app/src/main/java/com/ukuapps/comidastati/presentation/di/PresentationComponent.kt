@@ -5,6 +5,7 @@ import com.ukuapps.comidastati.presentation.login.newAccount.NewAccountActivity
 import com.ukuapps.comidastati.presentation.login.recoverPass.RecoverPassActivity
 import com.ukuapps.comidastati.presentation.login.signIn.SignInActivity
 import com.ukuapps.comidastati.presentation.main.MainActivity
+import com.ukuapps.comidastati.presentation.splash.SplashActivity
 import dagger.Component
 
 @Component(modules=[PresentationModule::class])
@@ -14,4 +15,5 @@ interface PresentationComponent {
     fun inject(newAccountActivity: NewAccountActivity)
     fun inject(mainActivity: MainActivity)
     fun inject(mainActivity: DetailActivity)
+    fun inject(splashActivity: SplashActivity)
 }

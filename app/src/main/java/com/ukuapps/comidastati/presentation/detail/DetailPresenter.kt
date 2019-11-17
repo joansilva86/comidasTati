@@ -6,6 +6,7 @@ import com.ukuapps.comidastati.R
 import com.ukuapps.comidastati.domain.main.ExceptionNewFood
 import com.ukuapps.comidastati.domain.main.MainInteractorI
 import com.ukuapps.comidastati.presentation.base.BasePresenter
+import com.ukuapps.comidastati.presentation.login.signIn.SignInModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -27,6 +28,15 @@ class DetailPresenter @Inject constructor(private val interactor: MainInteractor
 
     override fun detach() {
         this.view = null
+    }
+
+    fun begin(){
+        var user = SignInModel.getInstance()
+        if (user.isAdmin) {
+            view?.modeAdmin()
+        } else {
+            view?.modeUser()
+        }
     }
 
     fun newFood(model: DetailModel) {

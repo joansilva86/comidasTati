@@ -1,8 +1,11 @@
 package com.ukuapps.comidastati.presentation.main
 
+import com.ukuapps.comidastati.domain.main.GetListException
+import com.ukuapps.comidastati.domain.main.ListenerListFood
 import com.ukuapps.comidastati.domain.main.MainException
 import com.ukuapps.comidastati.domain.main.MainInteractorI
 import com.ukuapps.comidastati.presentation.base.BasePresenter
+import com.ukuapps.comidastati.presentation.login.signIn.SignInModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -27,20 +30,36 @@ class MainPresenter @Inject constructor(private val interactor: MainInteractorI)
         this.view = null
     }
 
+
+    var list = ArrayList<RecyclerModel>()
+
     fun begin() {
+        var user = SignInModel.getInstance()
+        if (user.isAdmin) {
+            view?.modeAdmin()
+        } else {
+            view?.modeUser()
+        }
         launch {
             try {
-                //interactor.getFood()
-                view?.showList()
 
-            } catch (ex: MainException) {
+                interactor.getListFood(list)
+                view?.showList(list)
+            } catch (ex: GetListException) {
                 view?.showError(ex.toString())
             }
         }
     }
 
-    fun getListFood(list : ArrayList<RecyclerModel>){
-        interactor.getListFood(list)
-    }
+    /*var listener = object : ListenerListFood {
+        override fun succed() {
+            view?.showList(list)
+        }
+
+        override fun failure() {
+
+        }
+
+    }*/
 
 }

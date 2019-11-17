@@ -26,7 +26,7 @@ class MainActivity : BaseActivity() , MainView{
         presenter.attach(this)
         //var list =  (recycler.adapter as CustomAdapter).list
         //var list = ArrayList<RecyclerModel>()
-        //presenter.getListFood(list)
+        presenter.begin()
     }
 
     override fun onPause() {
@@ -39,12 +39,20 @@ class MainActivity : BaseActivity() , MainView{
         (application as ComidasTatiApp).getAppContent().inject(this)
 
         fab.setOnClickListener { goToNewFood() }
-        recycler.adapter = CustomAdapter()
+        recycler.adapter = CustomAdapter(listenerRecyclerClick)
         recycler.layoutManager = LinearLayoutManager(this)
+        modeUser()
     }
 
-    override fun showList() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    var listenerRecyclerClick = object : ListenerRecyclerClick {
+        override fun onClick(id: Int) {
+            val intento1 = Intent(this@MainActivity, DetailActivity::class.java)
+            startActivity(intento1)
+        }
+    }
+
+    override fun showList(list: ArrayList<RecyclerModel>) {
+        (recycler.adapter as CustomAdapter).list = list
     }
 
     override fun showError(msj: String) {
@@ -62,11 +70,11 @@ class MainActivity : BaseActivity() , MainView{
     }
 
     override fun modeAdmin() {
-        //fab.visibility = View.VISIBLE
+        fab.show()
     }
 
     override fun modeUser() {
-        //fab.visibility = View.GONE
+        fab.hide()
     }
 
 }

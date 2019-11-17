@@ -78,6 +78,7 @@ class SignInActivity : BaseActivity(), SignInView {
     }
 
     override fun cleanPassword() {
+        txtPass.setText("")
 
     }
 
@@ -85,6 +86,7 @@ class SignInActivity : BaseActivity(), SignInView {
         val intent = Intent(this, RecoverPassActivity::class.java)
         startActivity(intent)
     }
+
     override fun showProgressBar() {
         progressBar.visibility = View.VISIBLE
         btnSignIn.visibility = View.GONE

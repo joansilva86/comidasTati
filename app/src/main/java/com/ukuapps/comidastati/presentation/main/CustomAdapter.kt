@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ukuapps.comidastati.R
 import kotlinx.android.synthetic.main.recycler_item.view.*
 
-class CustomAdapter : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
+class CustomAdapter (var listener: ListenerRecyclerClick) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
 
      var list = ArrayList<RecyclerModel>()
 
@@ -18,7 +18,7 @@ class CustomAdapter : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         var v = LayoutInflater.from(parent.context).inflate(R.layout.recycler_item,parent,false)
-        return MyViewHolder(v)
+        return MyViewHolder(v, listener)
 
     }
 
@@ -30,9 +30,17 @@ class CustomAdapter : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
         holder.bind(list[position])
     }
 
-    class MyViewHolder(var view: View) : RecyclerView.ViewHolder(view){
+    class MyViewHolder(var view: View, var listener: ListenerRecyclerClick) : RecyclerView.ViewHolder(view){
+        init {
+            this.view.setOnClickListener{listener}
+        }
         fun bind(model: RecyclerModel){
             view.txtName.text = model.name
         }
     }
+}
+
+interface ListenerRecyclerClick {
+    fun onClick(id: Int)
+
 }

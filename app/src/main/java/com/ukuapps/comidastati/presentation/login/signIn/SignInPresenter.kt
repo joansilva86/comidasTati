@@ -36,9 +36,11 @@ class SignInPresenter @Inject constructor(private var interactor: LoginInteracto
                 view?.showProgressBar()
                 interactor.signIn(model)
                 view?.goToMain()
+
             } catch (ex: SignInException) {
                 view?.cleanPassword()
                 view?.showError(ex.toString())
+                view?.cleanPassword()
                 view?.hideProgressBar()
             }
 

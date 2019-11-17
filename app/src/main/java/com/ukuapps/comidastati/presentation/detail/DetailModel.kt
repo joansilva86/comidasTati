@@ -14,4 +14,5 @@ class DetailModel(
                     && name.isNotEmpty()
                     && ingredientes.isNotEmpty())
         }*/
+    constructor(): this("","",1,1,"")
 }

@@ -17,6 +17,7 @@ class LoginInteractorImp : LoginInteractorI {
         auth?.signInWithEmailAndPassword(model.email, model.password)
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful()) {
+                    SignInModel.setInstance(model)
                     continues.resume(Unit)
                 } else {
                     continues.resumeWithException(SignInException(task.exception.toString()))

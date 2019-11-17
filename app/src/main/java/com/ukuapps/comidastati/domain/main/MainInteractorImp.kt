@@ -20,13 +20,15 @@ class MainInteractorImp : MainInteractorI {
         dbReference = database.reference.child("comidas")
     }
 
-    override fun getListFood(list: ArrayList<RecyclerModel>) {
-        this.list = list
-        dbReference.addValueEventListener(listener)
+    private var otroListener: ListenerListFood? = null
 
+    override fun getListFood(list: ArrayList<RecyclerModel>, listener: ListenerListFood) {
+        this.list = list
+        this.otroListener = listener!!
+        dbReference.addValueEventListener(listener2)
     }
 
-    var listener = object : ValueEventListener {
+    var listener2 = object : ValueEventListener {
         override fun onCancelled(p0: DatabaseError) {
             TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         }
@@ -35,18 +37,41 @@ class MainInteractorImp : MainInteractorI {
             if (dataSnapshot.exists()) {
                 //unobjeto = dataSnapshot.getValue(DetailModel::class.java)
                 for (h in dataSnapshot.children) {
-                    unobjeto = h.getValue(DetailModel::class.java)
+                    var unobjeto = h.getValue(DetailModel::class.java)
 
                     var vistaObjeto = convertir(unobjeto)
                     list.add(vistaObjeto)
                 }
+                otroListener?.succed()
+            }
+        }
+    }
 
+    override suspend fun getListFood(list: ArrayList<RecyclerModel>) : Unit = suspendCancellableCoroutine{continuos->
+
+        dbReference.addValueEventListener(object :   ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                continuos.resumeWithException(GetListException("algo Salio mal "))
             }
 
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    //unobjeto = dataSnapshot.getValue(DetailModel::class.java)
+                    for (h in dataSnapshot.children) {
+                        var unobjeto = h.getValue(DetailModel::class.java)
 
-        }
+                        var vistaObjeto = convertir(unobjeto)
+                        list.add(vistaObjeto)
+                    }
+                    otroListener?.succed()
+                }
+                continuos.resume(Unit)
+            }
+
+        })
 
     }
+
 
     fun convertir(detail: DetailModel?): RecyclerModel {
         return RecyclerModel(detail!!.name)
